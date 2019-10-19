@@ -7,6 +7,9 @@ import {
 
 //TODO continuar classe Excluir
 class ExcluirComp extends Component {
+    static navigationOptions = {
+        title: 'Excluir Produto',
+    };
     render() {
         return (
             <View>

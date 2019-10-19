@@ -12,8 +12,6 @@ let navegador = createStackNavigator({
    Atualizar: {screen: AtualizarComp},
    Excluir: {screen: ExcluirComp},
    Listar: {screen: ListarComp},
-},{
-    headerMode:'none'
 });
 
 let App = createAppContainer(navegador);

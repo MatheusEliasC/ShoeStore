@@ -7,6 +7,9 @@ import {
 
 //TODO continuar classe Atualizar
 class AtualizarComp extends Component {
+    static navigationOptions = {
+        title: 'Atualizar Produto',
+    };
     render() {
         return (
             <View>
