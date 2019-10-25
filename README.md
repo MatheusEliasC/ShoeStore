@@ -1,4 +1,7 @@
-# Favor informar NOME e RA do aluno
+# NOMES e RAS dos alunos
+Juan Pascual - 
+Matheus Elias Cruz - 221181670
+Renan Martins - 
 
 
 # ShoeStore
