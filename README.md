@@ -1,6 +1,6 @@
 # NOMES e RAS dos alunos
-Juan Pascual - 
-Matheus Elias Cruz - 221181670
+Juan Pascual - \
+Matheus Elias Cruz - 221181670\
 Renan Martins - 
 
 
