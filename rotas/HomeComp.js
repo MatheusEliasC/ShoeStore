@@ -9,8 +9,8 @@ class HomeComp extends Component {
         return (
             <SafeAreaView>
                 <View>
-                    <Text style={styles.title}>ShoeStore</Text>
-                    <Text style={styles.subtitle}>Escolha uma opção abaixo.</Text>
+                    <Text style={styles.title}>Shoe Store</Text>
+                    <Text style={styles.subtitle}>Escolha uma opção abaixo:</Text>
                 </View>
                 <View style={styles.fixToText}>
                     <Button title={'Cadastrar Produto'} onPress={() => {this.props.navigation.push("Cadastrar")}}/>
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: 2,
         fontSize: 50,
-        backgroundColor: 'gray',
+        backgroundColor: 'brown',
     },
     subtitle: {
         textAlign: 'center',
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     fixToText: {
         margin:1,
         padding:2,
+        fontSize: 15
     },
 });
 
