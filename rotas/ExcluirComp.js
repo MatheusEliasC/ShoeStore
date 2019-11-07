@@ -12,12 +12,22 @@ class ExcluirComp extends Component {
     };
     render() {
         return (
-            <View>
+            <View style={styles.container1}>
                 <Text style={{fontSize: 50}}>Essa é a pag. Excluir!</Text>
-                <Button title={'Volta!'} onPress={() => this.props.navigation.pop()}/>
+                <Button style={styles.backButton} title={'Volta!'} onPress={() => this.props.navigation.pop()}/>
             </View>
         );
     }
+}
+
+const styles = {
+	
+	
+	backButton: {
+		width: 10,
+		height: 10,
+		fontSize: 30
+	}
 }
 
 export default ExcluirComp;

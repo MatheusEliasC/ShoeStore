@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Button, SafeAreaView, StyleSheet} from 'react-native';
+import {View, Text, Button, SafeAreaView, StyleSheet, Image} from 'react-native';
 
 class HomeComp extends Component {
     static navigationOptions = {
@@ -10,21 +10,16 @@ class HomeComp extends Component {
             <SafeAreaView>
                 <View>
                     <Text style={styles.title}>Shoe Store</Text>
-                    <Text style={styles.subtitle}>Escolha uma opção abaixo:</Text>
+                    
                 </View>
-                <View style={styles.fixToText}>
-                    <Button title={'Cadastrar Produto'} onPress={() => {this.props.navigation.push("Cadastrar")}}/>
-                {/*</View>*/}
-                {/*<View style={styles.fixToText}>*/}
+                <View style={styles.fixToText}>				
+					<Image style={styles.containerImg} source={require('../shoes1.jpg')} />
+					<Text style={styles.subtitle}>Escolha uma opção abaixo:</Text>
+					<Button title={'Cadastrar Produto'} onPress={() => {this.props.navigation.push("Cadastrar")}}/>
                     <Button title={'Atualizar Produto'} onPress={() => {this.props.navigation.push("Atualizar")}}/>
-                {/*</View>*/}
-                {/*<View style={styles.fixToText}>*/}
                     <Button title={'Excluir Produto'} onPress={() => {this.props.navigation.push("Excluir")}}/>
-                {/*</View>*/}
-                {/*<View style={styles.fixToText}>*/}
                     <Button title={'Listar Produtos'} onPress={() => {this.props.navigation.push("Listar")}}/>
                 </View>
-
             </SafeAreaView>
         );
     }
@@ -35,18 +30,25 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: 2,
         fontSize: 50,
-        backgroundColor: 'brown',
+        backgroundColor: 'white',
     },
+	containerImg: {
+		width: 400,
+		height: 300
+	},
+	
     subtitle: {
         textAlign: 'center',
         marginBottom: 8,
         fontSize: 20,
     },
     fixToText: {
-        margin:1,
+        margin:2,
         padding:2,
-        fontSize: 15
+        fontSize: 20
     },
+	
+
 });
 
 export default HomeComp;
