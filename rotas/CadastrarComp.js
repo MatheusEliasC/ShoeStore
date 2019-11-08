@@ -1,112 +1,127 @@
 import React, {Component} from 'react';
-import {    View,    Text, StyleSheet, Button, TextInput, ScrollView, AsyncStorage, Alert, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, Button, TextInput, ScrollView, AsyncStorage, Alert, TouchableOpacity} from 'react-native';
 // import ImagePicker from 'react-native-image-picker'
 
+//Classe Cadastrar
 class CadastrarComp extends Component {
     constructor(props){
         super(props);
-        this.state = { modelo: "null" , numero: "null" , sexo: "null" , cor: "null" , preco: "null", data: Date()};
-            // imagem: null , qr: "null", };
+        this.state = { modelo: " " , numero: 0 , sexo: " " , cor: " " , preco: 0, data: Date()};
+        // imagem: null , qr: "null", };
         // this.handleChoosePhoto = this.handleChoosePhoto.bind(this);
+		
+		//Usamos o bind para que os valores digitados no TextInput sejam mudados no State.
         this.setTenis = this.setTenis.bind(this);
         this.setSocial = this.setSocial.bind(this);
         this.setCasual = this.setCasual.bind(this);
         this.setMasc = this.setMasc.bind(this);
         this.setFem = this.setFem.bind(this);
         this.setUnissex = this.setUnissex.bind(this);
+		this.setCalcado = this.setCalcado.bind(this);
+		this.setCor = this.setCor.bind(this);
         this._storeData = this._storeData.bind(this);
+		this.setPreco = this.setPreco.bind(this);
     }
 
-    async componentDidMount() {
+    /*async componentDidMount() {
         let dadosJson = await fetch('https://www.reddit.com/r/reactnative.json');
         dadosJson = await dadosJson.json();
         this.setState({dados: dadosJson.kind});
-    }
+    }*/
 
     static navigationOptions = {
         title: 'Cadastrar Produto',
     };
-
-    // handleChoosePhoto = () => {
-    //     const options = {
-    //         noData: true,
-    //     };
-    //     ImagePicker.launchImageLibrary(options, response => {
-    //         if (response.uri) {
-    //             this.setState({ image: response })
-    //         }
-    //     })
-    // };
-
-    setTenis = () => {
+	
+    setTenis(){
         this.setState({
             modelo: 'Tênis'
         })
     };
-    setSocial = () => {
+	
+    setSocial(){
         this.setState({
             modelo: 'Social'
         })
     };
-    setCasual = () => {
+	
+    setCasual(){
         this.setState({
             modelo: 'Casual'
         })
     };
 
-    setMasc = () => {
+    setMasc(){
         this.setState({
             sexo: 'Masculino'
-        })
+        });
+		//this.setState({sexo: texto});
     };
-    setFem = () => {
+	
+    setFem(){
         this.setState({
             modelo: 'Feminino'
         })
     };
-    setUnissex = () => {
+	
+    setUnissex(){
         this.setState({
             modelo: 'Unissex'
         })
     };
-
-    _storeData = async () => {
-        const showAlert = () =>{
+	
+	setCalcado(texto){
+		this.setState({numero: texto});
+	}
+	
+	setCor(texto){
+		this.setState({cor: texto});
+	}
+	
+	setPreco(texto){
+		this.setState({preco: texto});
+	}
+	
+	txtDados(texto) {
+		this.setState({cxTexto: texto});
+	}
+	
+    _storeData() {
+		{/*Alert.alert('Produto Adicionado com Sucesso!');*/}
+        {/*showAlert(){
             Alert.alert(
                 'Produto Adicionado!'
             )
-        };
+	};*/}
 
-        // if(this.modelo.localeCompare("null")){
-        //
-        // }
+        {/* if(this.modelo.localeCompare("null")){}*/}
+		{/* AsyncStorage.setItem('dadosCalcado', this.state)*/}
+		
 
-        await AsyncStorage.setItem('Calcado_modelo', this.modelo);
-        await AsyncStorage.setItem('Calcado_numero', this.numero);
-        await AsyncStorage.setItem('Calcado_sexo', this.sexo);
-        await AsyncStorage.setItem('Calcado_cor', this.cor);
-        await AsyncStorage.setItem('Calcado_preco', this.preco);
-        await AsyncStorage.setItem('Calcado_data', this.data);
-
-        showAlert();
-
+        AsyncStorage.setItem('Calcado_modelo', this.state.modelo);
+        AsyncStorage.setItem('Calcado_numero', this.state.numero);
+        AsyncStorage.setItem('Calcado_sexo', this.state.sexo);
+        AsyncStorage.setItem('Calcado_cor', this.state.cor);
+        AsyncStorage.setItem('Calcado_preco', this.state.preco);
+        AsyncStorage.setItem('Calcado_data', this.state.data);
+        {/*showAlert();*/}
+		Alert.alert('Calçado adicionado com sucesso!');
     };
 
     render() {
-        // const { imagem } = this.state;
+        {/* const { imagem } = this.state;*/}
         return (
             <ScrollView>
             <View>
-
                 <Text style={styles.title}>Bem vindo!</Text>
-
                 <Text style={styles.texto}>Escolha o modelo do calçado:</Text>
                 <Button title={'Tênis'} onPress={this.setTenis}/>
                 <Button title={'Social'} onPress={this.setSocial}/>
                 <Button title={'Casual'} onPress={this.setCasual}/>
 
                 <Text style={styles.texto}>Digite o número do calçado:</Text>
-                <TextInput onChangeText={numero => this.setState({numero})} />
+				{/* */}	
+				<TextInput keyboardType={'number-pad'} onChangeText={this.setCalcado} />
 
                 <Text style={styles.texto}>Escolha o sexo do calçado:</Text>
                 <Button title={'Masculino'} onPress={this.setMasc}/>
@@ -114,23 +129,15 @@ class CadastrarComp extends Component {
                 <Button title={'Unissex'} onPress={this.setUnissex}/>
 
                 <Text style={styles.texto}>Digite a cor do calçado:</Text>
-                <TextInput onChangeText={cor => this.setState({cor})} />
+                
+				<TextInput onChangeText={this.setCor} />
 
-                <Text style={styles.texto}>Digite o preco do calçado:</Text>
-                <TextInput onChangeText={preco => this.setState({preco})}/>
-
-                {/*<Text style={styles.texto}>Insira a imagem do calçado:</Text>*/}
-                {/*<Button title="Choose Photo" onPress={this.handleChoosePhoto} />*/}
-                {/*{imagem && ( <Image source={{ uri: imagem.uri }} style={{ width: 300, height: 300 }}/>)}*/}
-                {/*TODO Procurar como fazer um botão de import pra importar a imagem do celular*!/*/}
-
-                {/*<Text style={styles.texto}>Insira o QR da caixa do calçado:</Text>*/}
-                {/*TODO fazer outro import aqui*!*/}
+                <Text style={styles.texto}>Digite o preço do calçado:</Text>
+                
+				<TextInput keyboardType={"decimal-pad"} onChangeText={this.setPreco} />
 
                 <Text style={styles.texto}>A data de entrada do calçado no estoque será do dia de hoje.</Text>
-
-                <TouchableOpacity onPress = {this._storeData} style = {styles.enviarButton}><Text>Enviar</Text></TouchableOpacity>
-
+                <TouchableOpacity onPress={this._storeData} style={styles.enviarButton}><Text>Enviar</Text></TouchableOpacity>
             </View>
             </ScrollView>
         );
@@ -142,6 +149,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginVertical: 8,
         fontSize: 20,
+		
     },
     texto: {
         textAlign: 'left',
