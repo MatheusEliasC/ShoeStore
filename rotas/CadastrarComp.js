@@ -1,17 +1,6 @@
 import React, {Component} from 'react';
-import {
-    View,
-    Text,
-    StyleSheet,
-    Button,
-    TextInput,
-    ScrollView,
-    AsyncStorage,
-    Alert,
-    TouchableOpacity,
-    Image
-} from 'react-native';
-// import ImagePicker from 'react-native-image-picker'
+import {View, Text, StyleSheet, Button, TextInput, ScrollView, AsyncStorage, Alert, TouchableOpacity, Image} from 'react-native';
+import Calcado from "../Resources/js/Calcado";
 
 //Classe Cadastrar
 class CadastrarComp extends Component {

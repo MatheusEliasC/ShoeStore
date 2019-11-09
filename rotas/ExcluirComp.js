@@ -13,8 +13,6 @@ class ExcluirComp extends Component {
     render() {
         return (
             <View style={styles.container1}>
-                <Text style={{fontSize: 50}}>Essa é a pag. Excluir!</Text>
-                <Button style={styles.backButton} title={'Volta!'} onPress={() => this.props.navigation.pop()}/>
             </View>
         );
     }

@@ -32,7 +32,7 @@ class ListarComp extends Component {
     render() {
         return (
             <View>
-                <Text style={styles.subtitulo}>Listando todos calçados da loja:</Text>
+                <Text style={styles.subtitulo}/>
                 <Button onPress={this._retrieveData} title={'Listar'}/>
                 <Text style={styles.texto}>{this.state.modelo}</Text>
                 <Text style={styles.texto}>{this.state.numero}</Text>
@@ -43,8 +43,6 @@ class ListarComp extends Component {
             </View>
         );
     }
-
-
 }
 
 let modeloConst; let numeroConst; let sexoConst; let corConst; let precoConst; let dataConst;
