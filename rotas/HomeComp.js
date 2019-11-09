@@ -13,7 +13,7 @@ class HomeComp extends Component {
                     
                 </View>
                 <View style={styles.fixToText}>				
-					<Image style={styles.containerImg} source={require('../shoes1.jpg')} />
+					<Image resizeMode={'contain'} style={styles.containerImg} source={require('../shoes1.jpg')} />
 					<Text style={styles.subtitle}>Escolha uma opção abaixo:</Text>
 					<Button title={'Cadastrar Produto'} onPress={() => {this.props.navigation.push("Cadastrar")}}/>
                     <Button title={'Atualizar Produto'} onPress={() => {this.props.navigation.push("Atualizar")}}/>
@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
 	containerImg: {
-		width: 400,
-		height: 300
+		width: "100%",
+		height: "60%"
 	},
 	
     subtitle: {
