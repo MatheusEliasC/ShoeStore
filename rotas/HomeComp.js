@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Button, SafeAreaView, StyleSheet, Image} from 'react-native';
+import {View, Text, Button, SafeAreaView, StyleSheet, Image, ScrollView} from 'react-native';
 
 class HomeComp extends Component {
     static navigationOptions = {
