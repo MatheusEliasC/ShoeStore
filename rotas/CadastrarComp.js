@@ -119,7 +119,7 @@ class CadastrarComp extends Component {
         return (
             <ScrollView>
             <View>
-                <Image style={styles.containerImg} source={require('../shoes1.jpg')} />
+                <Image style={styles.containerImg} source={require('../Resources/images/shoes1.jpg')} />
                 <Text style={styles.texto}>Escolha o modelo do calçado:</Text>
                 <Button title={'Tênis'} onPress={this.setTenis}/>
                 <Button title={'Social'} onPress={this.setSocial}/>

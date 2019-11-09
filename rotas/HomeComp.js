@@ -14,7 +14,7 @@ class HomeComp extends Component {
                     
                 </View>
                 <View style={styles.fixToText}>				
-					<Image resizeMode={'contain'} style={styles.containerImg} source={require('../shoes1.jpg')} />
+					<Image resizeMode={'contain'} style={styles.containerImg} source={require('../Resources/images/shoes1.jpg')} />
 					<Text style={styles.subtitle}>Escolha uma opção abaixo:</Text>
 					<Button title={'Cadastrar Produto'} onPress={() => {this.props.navigation.push("Cadastrar")}}/>
                     <Button title={'Atualizar Produto'} onPress={() => {this.props.navigation.push("Atualizar")}}/>
