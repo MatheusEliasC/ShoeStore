@@ -7,6 +7,7 @@ class HomeComp extends Component {
     };
     render() {
         return (
+            <ScrollView>
             <SafeAreaView>
                 <View>
                     <Text style={styles.title}>Shoe Store</Text>
@@ -21,6 +22,7 @@ class HomeComp extends Component {
                     <Button title={'Listar Produtos'} onPress={() => {this.props.navigation.push("Listar")}}/>
                 </View>
             </SafeAreaView>
+            </ScrollView>
         );
     }
 }
@@ -34,7 +36,6 @@ const styles = StyleSheet.create({
     },
 	containerImg: {
 		width: "100%",
-		height: "60%"
 	},
 	
     subtitle: {

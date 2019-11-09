@@ -1,12 +1,23 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Button, TextInput, ScrollView, AsyncStorage, Alert, TouchableOpacity} from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    Button,
+    TextInput,
+    ScrollView,
+    AsyncStorage,
+    Alert,
+    TouchableOpacity,
+    Image
+} from 'react-native';
 // import ImagePicker from 'react-native-image-picker'
 
 //Classe Cadastrar
 class CadastrarComp extends Component {
     constructor(props){
         super(props);
-        this.state = { modelo: " " , numero: 0 , sexo: " " , cor: " " , preco: 0, data: Date()};
+        this.state = { modelo: " " , numero: 0 , sexo: " " , cor: " " , preco: 0, data: Date(), numeroTexto: ""};
         // imagem: null , qr: "null", };
         // this.handleChoosePhoto = this.handleChoosePhoto.bind(this);
 		
@@ -30,7 +41,7 @@ class CadastrarComp extends Component {
     }*/
 
     static navigationOptions = {
-        title: 'Cadastrar Produto',
+        title: 'Cadastrar Calçado',
     };
 	
     setTenis(){
@@ -85,43 +96,39 @@ class CadastrarComp extends Component {
 	txtDados(texto) {
 		this.setState({cxTexto: texto});
 	}
+
+	// testaDados(){
+	//     if(this.props.numero > 47 || this.props.numero <= 30){
+    //         this.state ={
+    //             numeroTexto: "número inválido!",
+    //         };
+    //     }
+    // }
 	
     _storeData() {
-		{/*Alert.alert('Produto Adicionado com Sucesso!');*/}
-        {/*showAlert(){
-            Alert.alert(
-                'Produto Adicionado!'
-            )
-	};*/}
-
-        {/* if(this.modelo.localeCompare("null")){}*/}
-		{/* AsyncStorage.setItem('dadosCalcado', this.state)*/}
-		
-
         AsyncStorage.setItem('Calcado_modelo', this.state.modelo);
         AsyncStorage.setItem('Calcado_numero', this.state.numero);
         AsyncStorage.setItem('Calcado_sexo', this.state.sexo);
         AsyncStorage.setItem('Calcado_cor', this.state.cor);
         AsyncStorage.setItem('Calcado_preco', this.state.preco);
         AsyncStorage.setItem('Calcado_data', this.state.data);
-        {/*showAlert();*/}
 		Alert.alert('Calçado adicionado com sucesso!');
     };
 
     render() {
-        {/* const { imagem } = this.state;*/}
         return (
             <ScrollView>
             <View>
-                <Text style={styles.title}>Bem vindo!</Text>
+                <Image style={styles.containerImg} source={require('../shoes1.jpg')} />
                 <Text style={styles.texto}>Escolha o modelo do calçado:</Text>
                 <Button title={'Tênis'} onPress={this.setTenis}/>
                 <Button title={'Social'} onPress={this.setSocial}/>
                 <Button title={'Casual'} onPress={this.setCasual}/>
 
                 <Text style={styles.texto}>Digite o número do calçado:</Text>
-				{/* */}	
 				<TextInput keyboardType={'number-pad'} onChangeText={this.setCalcado} />
+                <Text style={styles.textoCorrecao}>{this.state.numeroTexto}</Text>
+
 
                 <Text style={styles.texto}>Escolha o sexo do calçado:</Text>
                 <Button title={'Masculino'} onPress={this.setMasc}/>
@@ -157,9 +164,22 @@ const styles = StyleSheet.create({
         marginLeft: 8,
         fontSize: 16,
     },
+    textoCorrecao: {
+        textAlign: 'right',
+        marginVertical: 8,
+        marginLeft: 8,
+        fontSize: 12,
+        color: 'red',
+    },
     fixToText: {
         margin:1,
         padding:2,
+    },
+    containerImg: {
+        width: 200,
+        height: 150,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     enviarButton: {
         textAlign: 'center',
